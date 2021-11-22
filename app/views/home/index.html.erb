@@ -1,9 +1,11 @@
-<h1>Imóveis Disponíveis VIA API</h1>
+<h1>Imóveis disponíveis via API</h1>
 
 
-<% @properties.each do |p| %>
-<div>
-    <h2><%= p.title %></h2>
-    <%= p.description %>
-</div>
+
+<% if @properties.nil? %>
+  Não foi possível consultar os imóveis no momento
+<% else %>
+  <% @properties.each do |p| %>
+    <%= p.title %>
   <% end %>
+<% end %>

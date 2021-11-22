@@ -1,35 +1,21 @@
 class Property
-  attr_accessor :title, :description, :property_type
-
-  def initialize(hash_parameters)
-    @title = hash_parameters[:title]
-    @description = hash_parameters[:description]
+  attr_accessor :title, :description
+  
+  def initialize(params)
+    @title = params[:title]
+    @description = params[:description]
   end
-
 
   def self.all
-    imoveis = []
+    result = []
     response = Faraday.get("http://localhost:3000/api/v1/properties/")
-
+    return nil if response.status == 500
     if response.status == 200
-      data = JSON.parse(response.body)
+      data = JSON.parse(response.body, symbolize_names: true)
       data.each do |d|
-        imoveis << Property.new({ title: d["title"], description: d["description"] })
+        result << Property.new(d)
       end
     end
-
-    return imoveis
-  end
-
-
-  def self.find(id)
-    imovel = nil
-    response = Faraday.get("http://localhost:3000/api/v1/properties/#{id}")
-    return nil if response.status == 404
-    if response.status == 200
-      data = JSON.parse(response.body)
-      imovel = Property.new({ title: data["title"], description: data["description"] })
-    end
-    return imovel
+    result
   end
 end

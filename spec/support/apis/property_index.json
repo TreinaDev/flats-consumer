@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Apartamento legal",
+    "description": "Lindo apartamento no Leme",
+    "rooms": 3,
+    "parking_slot": null,
+    "bathrooms": 5,
+    "pets": true,
+    "daily_rate": "200.0",
+    "property_owner_id": 1,
+    "property_type": {
+      "name": "Templo Jedi"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Apartamento antigo",
+    "description": "Apartamento decorado com vista para o forte de Copacabana",
+    "rooms": 3,
+    "parking_slot": null,
+    "bathrooms": 2,
+    "pets": false,
+    "daily_rate": "100.0",
+    "property_owner_id": 2,
+    "property_type": {
+      "name": "Templo Jedi"
+    }
+  }
+]
