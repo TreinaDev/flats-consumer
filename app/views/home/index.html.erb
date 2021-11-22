@@ -1,0 +1,9 @@
+<h1>Imóveis Disponíveis VIA API</h1>
+
+
+<% @properties.each do |p| %>
+<div>
+    <h2><%= p.title %></h2>
+    <%= p.description %>
+</div>
+  <% end %>
